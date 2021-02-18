@@ -3,7 +3,7 @@ import {
   Row, Button, ListGroup,
 } from 'react-bootstrap';
 import { GiPencil, GiTrashCan } from 'react-icons/gi';
-import Caixa2 from '../Card_atividade4';
+import Caixa2 from '../Cards/Card_atividade4';
 
 const TodoList = ({ todos, setTodos }) => {
   // Função de verificação da tarefa

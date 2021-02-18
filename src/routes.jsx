@@ -7,17 +7,17 @@ import index from './pages';
 import Atividade4 from './components/Atividade4/Todo';
 
 const routes = [{
-  path: '/Reactex/home',
+  path: '/home',
   name: 'Home',
   component: index,
   exact: true,
 }, {
-  path: '/Reactex/grupo',
+  path: '/grupo',
   name: 'Grupo',
   component: Grupo,
   exact: true,
 }, {
-  path: '/Reactex/atividade4',
+  path: '/atividade4',
   name: 'Atividade 4',
   component: Atividade4,
   exact: true,

@@ -7,8 +7,7 @@ const CaixaGrupo = ({ nomes = [], cardTitle }) => (
     <Card.Body className="p-2">
       <div className="text-center texto">
         <h1>
-          nomes=
-          {nomes.map(nomes).join('')}
+          {nomes}
         </h1>
       </div>
     </Card.Body>

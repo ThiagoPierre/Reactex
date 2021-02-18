@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import MyVerticallyCenteredModal from './Modal';
+import MyVerticallyCenteredModal from '../Modal';
 
 // Criação do card
 const Caixa = ({

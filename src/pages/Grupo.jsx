@@ -1,5 +1,5 @@
 import React from 'react';
-import CaixaGrupo from '../components/Card_grupo';
+import CaixaGrupo from '../components/Cards/Card_grupo';
 
 const nomes = ['Thiago Barboza Pierre',
   'Tiago Netto',
