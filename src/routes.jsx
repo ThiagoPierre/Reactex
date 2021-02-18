@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import caixaGrupo from './components/Card_grupo';
+import Grupo from './pages/Grupo';
 import Header from './components/Header';
 import index from './pages';
 import Atividade4 from './components/Atividade4/Todo';
@@ -14,7 +14,7 @@ const routes = [{
 }, {
   path: '/Reactex/grupo',
   name: 'Grupo',
-  component: caixaGrupo,
+  component: Grupo,
   exact: true,
 }, {
   path: '/Reactex/atividade4',

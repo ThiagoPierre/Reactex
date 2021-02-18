@@ -4,7 +4,7 @@ import {
   Form, Row, Button,
 } from 'react-bootstrap';
 import { GiOpenBook } from 'react-icons/gi';
-import Caixa2 from '../Card_ex04';
+import Caixa2 from '../Card_atividade4';
 
 export default function TodoForm({ todos, setTodos }) {
   // estado do texto

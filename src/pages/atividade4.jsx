@@ -4,7 +4,7 @@ import {
 } from 'react-bootstrap';
 import { GiZeusSword, GiPencil } from 'react-icons/gi';
 
-import Caixa2 from '../components/Card_ex04';
+import Caixa2 from '../components/Card_atividade4';
 
 const App = () => {
   // Declarando os estados
