@@ -3,7 +3,7 @@ import {
   Row, Button, ListGroup,
 } from 'react-bootstrap';
 import { GiPencil, GiTrashCan } from 'react-icons/gi';
-import Caixa2 from '../Card_ex04';
+import Caixa2 from '../Cards/Card_atividade4';
 
 const TodoList = ({ todos, setTodos }) => {
   // Função de verificação da tarefa
@@ -80,8 +80,8 @@ const TodoList = ({ todos, setTodos }) => {
                   onChange={(event) => onChangeTodo(event, index)}
                 />
               ) : (
-                <span className={todo.completed ? 'completed' : ''} />
-              )}
+                  <span className={todo.completed ? 'completed' : ''} />
+                )}
 
               <Button
                 className="m-2"

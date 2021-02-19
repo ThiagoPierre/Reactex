@@ -1,23 +1,23 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import caixaGrupo from './components/Card_grupo';
+import Grupo from './components/Cards/Card_grupo';
 import Header from './components/Header';
 import index from './pages';
 import Atividade4 from './components/Atividade4/Todo';
 
 const routes = [{
-  path: '/Reactex/home',
+  path: '/home',
   name: 'Home',
   component: index,
   exact: true,
 }, {
-  path: '/Reactex/grupo',
+  path: '/grupo',
   name: 'Grupo',
-  component: caixaGrupo,
+  component: Grupo,
   exact: true,
 }, {
-  path: '/Reactex/atividade4',
+  path: '/atividade4',
   name: 'Atividade 4',
   component: Atividade4,
   exact: true,
@@ -25,7 +25,7 @@ const routes = [{
 
 const Routes = () => (
   <BrowserRouter>
-    <Header title="PITANG 2" to="/Reactex/home" routes={routes} />
+    <Header title="PITANG 2" to="/home" routes={routes} />
     <Switch>
       {routes.map(({ component, path, exact }) => (
         <Route

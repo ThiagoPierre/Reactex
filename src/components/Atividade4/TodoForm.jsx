@@ -4,7 +4,7 @@ import {
   Form, Row, Button,
 } from 'react-bootstrap';
 import { GiOpenBook } from 'react-icons/gi';
-import Caixa2 from '../Card_ex04';
+import CaixaAtividade from '../Cards/Card_atividade4';
 import axios from '../../utils/api';
 
 export default function TodoForm({ todos, setTodos }) {
@@ -34,7 +34,7 @@ export default function TodoForm({ todos, setTodos }) {
 
   // Corpo da Aplicação
   return (
-    <Caixa2 title="ToDo List" className="m-4">
+    <CaixaAtividade title="ToDo List" className="m-4">
 
       <h1>
         Lista de Atividades
@@ -69,6 +69,6 @@ export default function TodoForm({ todos, setTodos }) {
 
       </Row>
 
-    </Caixa2>
+    </CaixaAtividade>
   );
 }
