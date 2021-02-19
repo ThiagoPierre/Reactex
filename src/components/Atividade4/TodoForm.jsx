@@ -5,13 +5,29 @@ import {
 } from 'react-bootstrap';
 import { GiOpenBook } from 'react-icons/gi';
 import Caixa2 from '../Card_ex04';
+import axios from '../../utils/api';
 
 export default function TodoForm({ todos, setTodos }) {
   // estado do texto
   const [text, setText] = useState('');
 
-  // Função para adicionar ToDo
-  const onAddTodo = () => {
+  // Função para adicionar ToDo sem usar a API
+  /* const onAddTodo = () => {
+    setTodos([...todos, { title: text }]);
+    setText('');
+  }; */
+
+  // Função para adicionar ToDo usando a API
+  const onAddTodo = async (event) => {
+    event.preventDefault();
+
+    const data = {
+      completed: false,
+      title: text,
+    };
+
+    await axios.post('/todo', data);
+
     setTodos([...todos, { title: text }]);
     setText('');
   };
@@ -26,13 +42,16 @@ export default function TodoForm({ todos, setTodos }) {
       </h1>
       <Row>
         <Col xl={12} md={9} />
-        <Form className="m-2">
+        <Form
+          onSubmit={onAddTodo}
+          className="m-2"
+        >
           <Form.Group>
             <Form.Control
-              type="text"
               value={text}
               onChange={(event) => setText(event.target.value)}
-              placeholder="Insira sua atividade"
+              type="text"
+              placeholder="Insira sua atividade do dia"
             />
           </Form.Group>
         </Form>
