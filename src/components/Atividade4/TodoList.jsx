@@ -3,35 +3,52 @@ import {
   Row, Button, ListGroup,
 } from 'react-bootstrap';
 import { GiPencil, GiTrashCan } from 'react-icons/gi';
+import axios from '../../utils/api';
 import Caixa2 from '../Cards/Card_atividade4';
 
 const TodoList = ({ todos, setTodos }) => {
   // Função de verificação da tarefa
-  const checkComplete = (id) => {
-    const newTodos = [...todos];
-    newTodos[id].isCompleted = !newTodos[id].isCompleted;
+  const checkComplete = async ({ target: { checked } }, todo) => {
+    const newTodos = todos.map((_todo) => {
+      if (_todo.id === todo.id) {
+        return {
+          ..._todo,
+          isCompleted: checked,
+        };
+      }
+      return _todo;
+    });
+
+    await axios.put(`/todo/${todo.id}`, {
+      ...todo,
+      isCompleted: checked,
+    });
+
     setTodos(newTodos);
   };
 
   // Função de deletar a tarefa
-  const deleteTodo = (event) => {
+  const deleteTodo = async (todo, event) => {
     todos.splice(event.target.value, 1);
+
+    await axios.delete(`/todo/${todo.id}`);
     setTodos([...todos]);
   };
 
   // Funções para editar uma tarefa
   // onEditTodo recebe os todos e atualiza com o setTodos
-  const onEditTodo = (index) => {
-    const newTodos = todos.map((todo, todoIndex) => {
-      if (todoIndex === index) {
+  const onEditTodo = async (todo) => {
+    const newTodos = todos.map((oneTodo) => {
+      if (oneTodo.id === todo.id) {
         return {
-          ...todo,
-          edit: !todo.edit,
+          ...oneTodo,
+          edit: !oneTodo.edit,
         };
       }
 
-      return todo;
+      return oneTodo;
     });
+    await axios.put(`/todo/${todo.id}`, { ...todo, edit: false });
 
     setTodos(newTodos);
   };
@@ -69,10 +86,9 @@ const TodoList = ({ todos, setTodos }) => {
               <input
                 className="m-2"
                 type="checkbox"
-                onClick={() => checkComplete(index)}
+                onChange={(event) => checkComplete(event, todo)}
+                checked={todo.isCompleted}
               />
-
-              {todo.title}
 
               {todo.edit ? (
                 <input
@@ -80,12 +96,14 @@ const TodoList = ({ todos, setTodos }) => {
                   onChange={(event) => onChangeTodo(event, index)}
                 />
               ) : (
-                  <span className={todo.completed ? 'completed' : ''} />
-                )}
+                <span className={todo.isCompleted ? 'isCompleted' : ''}>
+                  {todo.title}
+                </span>
+              )}
 
               <Button
                 className="m-2"
-                onClick={() => onEditTodo(index)}
+                onClick={() => onEditTodo(todo)}
               >
                 <GiPencil className="m-2" />
               </Button>
@@ -94,7 +112,7 @@ const TodoList = ({ todos, setTodos }) => {
                 type="button"
                 variant="danger"
                 className="m-2"
-                onClick={deleteTodo}
+                onClick={(event) => deleteTodo(todo, event)}
                 value={index}
               >
                 <GiTrashCan className="m-2" />
