@@ -36,27 +36,5 @@
   "profile": {
     "name": "typicode"
   },
-  "todo": [
-    {
-      "completed": true,
-      "title": "www 12345",
-      "id": 13,
-      "edit": false
-    },
-    {
-      "completed": false,
-      "title": "aaaaaaa",
-      "id": 14
-    },
-    {
-      "completed": false,
-      "title": "bbbbb",
-      "id": 15
-    },
-    {
-      "completed": false,
-      "title": "oioioi",
-      "id": 16
-    }
-  ]
+  "todo": []
 }

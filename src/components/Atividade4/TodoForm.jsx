@@ -22,7 +22,7 @@ export default function TodoForm({ todos, setTodos }) {
     event.preventDefault();
 
     const data = {
-      completed: false,
+      isCompleted: false,
       title: text,
     };
 

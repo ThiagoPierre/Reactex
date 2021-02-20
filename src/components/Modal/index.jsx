@@ -5,15 +5,15 @@ import Modal from 'react-bootstrap/Modal';
 const ModalCentralizado = ({ props }) => (
     <Modal
         // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
     >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
                 Dúvidas
-        </Modal.Title>
+            </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <h4>Até o momento</h4>
