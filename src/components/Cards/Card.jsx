@@ -1,10 +1,8 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-
 import ModalCentralizado from '../Modal';
 
-// Criação do card
 const Caixa = ({
   info, cardTitle,
 }) => {
@@ -14,7 +12,7 @@ const Caixa = ({
       <Card.Header><b>{cardTitle}</b></Card.Header>
       <Card.Body className="p-2">
         <Button variant="dark" onClick={() => setModalShow(true)} className="p-2 preto" data-toggle="modal" data-target="#exampleModalLong">
-          {info}
+          { info }
           {' '}
         </Button>
         <ModalCentralizado
