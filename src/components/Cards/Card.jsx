@@ -1,9 +1,8 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import MyVerticallyCenteredModal from '../Modal';
+import ModalCentralizado from '../Modal';
 
-// Criação do card
 const Caixa = ({
   info, cardTitle,
 }) => {
@@ -16,7 +15,7 @@ const Caixa = ({
           { info }
           {' '}
         </Button>
-        <MyVerticallyCenteredModal
+        <ModalCentralizado
           show={modalShow}
           onHide={() => setModalShow(false)}
         />

@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 
-const MyVerticallyCenteredModal = ({ props }) => (
+const ModalCentralizado = (props) => (
   <Modal
       // eslint-disable-next-line react/jsx-props-no-spreading
     {...props}
@@ -27,4 +27,4 @@ const MyVerticallyCenteredModal = ({ props }) => (
   </Modal>
 );
 
-export default MyVerticallyCenteredModal;
+export default ModalCentralizado;
