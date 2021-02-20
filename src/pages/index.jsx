@@ -1,6 +1,6 @@
 import React from 'react';
 import Caixa from '../components/Cards/Card';
-import '../styles/index.scss';
+import '../styles/index.css';
 
 const index = () => (
   <div className="App">

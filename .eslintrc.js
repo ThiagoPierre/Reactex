@@ -22,6 +22,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
+
     'react/jsx-filename-extension': [
       'error',
       {
