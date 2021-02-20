@@ -4,54 +4,36 @@ import {
   Form, Row, Button,
 } from 'react-bootstrap';
 import { GiOpenBook } from 'react-icons/gi';
-import CaixaAtividade from '../Cards/Card_atividade4';
-import axios from '../../utils/api';
+import { ToastContainer, toast } from 'react-toastify';
+import Caixa2 from '../Cards/Card_atividade4';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function TodoForm({ todos, setTodos }) {
   // estado do texto
   const [text, setText] = useState('');
-
-  // Função para adicionar ToDo sem usar a API
-  /* const onAddTodo = () => {
-    setTodos([...todos, { title: text }]);
-    setText('');
-  }; */
-
-  // Função para adicionar ToDo usando a API
-  const onAddTodo = async (event) => {
-    event.preventDefault();
-
-    const data = {
-      isCompleted: false,
-      title: text,
-    };
-
-    await axios.post('/todo', data);
-
+  const notify = () => toast('Atividade adicionada! 🤣🤣🤣');
+  // Função para adicionar ToDo
+  const onAddTodo = () => {
     setTodos([...todos, { title: text }]);
     setText('');
   };
 
   // Corpo da Aplicação
   return (
-    <CaixaAtividade title="ToDo List" className="m-4">
-
+    <Caixa2 title="ToDo List" className="m-4">
       <h1>
         Lista de Atividades
         <GiOpenBook className="m-2" />
       </h1>
       <Row>
         <Col xl={12} md={9} />
-        <Form
-          onSubmit={onAddTodo}
-          className="m-2"
-        >
+        <Form className="m-2">
           <Form.Group>
             <Form.Control
+              type="text"
               value={text}
               onChange={(event) => setText(event.target.value)}
-              type="text"
-              placeholder="Insira sua atividade do dia"
+              placeholder="Insira sua atividade"
             />
           </Form.Group>
         </Form>
@@ -59,16 +41,17 @@ export default function TodoForm({ todos, setTodos }) {
         <Col>
           <Button
             disabled={!text.trim()}
-            onClick={onAddTodo}
+            onClick={(event) => { onAddTodo(event); notify(); }}
             type="button"
             className="m-2"
           >
             Adicionar
           </Button>
+          <ToastContainer />
         </Col>
 
       </Row>
 
-    </CaixaAtividade>
+    </Caixa2>
   );
 }

@@ -3,52 +3,39 @@ import {
   Row, Button, ListGroup,
 } from 'react-bootstrap';
 import { GiPencil, GiTrashCan } from 'react-icons/gi';
-import axios from '../../utils/api';
+import { ToastContainer, toast } from 'react-toastify';
 import Caixa2 from '../Cards/Card_atividade4';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TodoList = ({ todos, setTodos }) => {
+  // adicão do toastify
+  const notify = () => toast('Atividade removida! 😭😭😭');
   // Função de verificação da tarefa
-  const checkComplete = async ({ target: { checked } }, todo) => {
-    const newTodos = todos.map((_todo) => {
-      if (_todo.id === todo.id) {
-        return {
-          ..._todo,
-          isCompleted: checked,
-        };
-      }
-      return _todo;
-    });
-
-    await axios.put(`/todo/${todo.id}`, {
-      ...todo,
-      isCompleted: checked,
-    });
-
+  const checkComplete = (id) => {
+    const newTodos = [...todos];
+    newTodos[id].isCompleted = !newTodos[id].isCompleted;
     setTodos(newTodos);
   };
 
   // Função de deletar a tarefa
-  const deleteTodo = async (todo, event) => {
+  const deleteTodo = (event) => {
     todos.splice(event.target.value, 1);
-
-    await axios.delete(`/todo/${todo.id}`);
     setTodos([...todos]);
   };
 
   // Funções para editar uma tarefa
   // onEditTodo recebe os todos e atualiza com o setTodos
-  const onEditTodo = async (todo) => {
-    const newTodos = todos.map((oneTodo) => {
-      if (oneTodo.id === todo.id) {
+  const onEditTodo = (index) => {
+    const newTodos = todos.map((todo, todoIndex) => {
+      if (todoIndex === index) {
         return {
-          ...oneTodo,
-          edit: !oneTodo.edit,
+          ...todo,
+          edit: !todo.edit,
         };
       }
 
-      return oneTodo;
+      return todo;
     });
-    await axios.put(`/todo/${todo.id}`, { ...todo, edit: false });
 
     setTodos(newTodos);
   };
@@ -72,10 +59,9 @@ const TodoList = ({ todos, setTodos }) => {
   // Corpo da Aplicação
   return (
     <Caixa2 title="Atividades" className="m-4">
-
       <Row>
         <ListGroup className="m-2">
-          {todos.map((todo, index) => (
+          {todos.length ? todos.map((todo, index) => (
             <ListGroup.Item
               key={todo.title}
               style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}
@@ -86,9 +72,10 @@ const TodoList = ({ todos, setTodos }) => {
               <input
                 className="m-2"
                 type="checkbox"
-                onChange={(event) => checkComplete(event, todo)}
-                checked={todo.isCompleted}
+                onClick={() => checkComplete(index)}
               />
+
+              {todo.title}
 
               {todo.edit ? (
                 <input
@@ -96,14 +83,12 @@ const TodoList = ({ todos, setTodos }) => {
                   onChange={(event) => onChangeTodo(event, index)}
                 />
               ) : (
-                <span className={todo.isCompleted ? 'isCompleted' : ''}>
-                  {todo.title}
-                </span>
+                <span className={todo.completed ? 'completed' : ''} />
               )}
 
               <Button
-                className="m-2"
-                onClick={() => onEditTodo(todo)}
+                className="m-2 float-end"
+                onClick={() => onEditTodo(index)}
               >
                 <GiPencil className="m-2" />
               </Button>
@@ -111,14 +96,21 @@ const TodoList = ({ todos, setTodos }) => {
               <Button
                 type="button"
                 variant="danger"
-                className="m-2"
-                onClick={(event) => deleteTodo(todo, event)}
+                className="m-2 float-end"
+                onClick={(event) => { deleteTodo(event); notify(); }}
                 value={index}
               >
                 <GiTrashCan className="m-2" />
               </Button>
+              <ToastContainer />
             </ListGroup.Item>
-          ))}
+          )) : (
+            <tr>
+              <td align="center">
+                Nenhuma atividade foi adicionada 😅
+              </td>
+            </tr>
+          )}
         </ListGroup>
       </Row>
 
