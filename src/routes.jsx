@@ -3,11 +3,12 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Grupo from './pages/Grupo';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import index from './pages';
 import Atividade4 from './components/Atividade4/Todo';
 
 const routes = [{
-  path: '/home',
+  path: '/',
   name: 'Home',
   component: index,
   exact: true,
@@ -24,19 +25,22 @@ const routes = [{
 }];
 
 const Routes = () => (
-  <BrowserRouter>
-    <Header title="PITANG 2" to="/Reactex/home" routes={routes} />
-    <Switch>
-      {routes.map(({ component, path, exact }) => (
-        <Route
-          key={path}
-          path={path}
-          component={component}
-          exact={exact}
-        />
-      ))}
-    </Switch>
-  </BrowserRouter>
+  <div>
+    <BrowserRouter>
+      <Header title="PITANG 2" to="/Reactex/home" routes={routes} />
+      <Switch>
+        {routes.map(({ component, path, exact }) => (
+          <Route
+            key={path}
+            path={path}
+            component={component}
+            exact={exact}
+          />
+        ))}
+      </Switch>
+    </BrowserRouter>
+    <Footer />
+  </div>
 );
 
 export default Routes;

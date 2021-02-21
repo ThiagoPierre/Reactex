@@ -8,10 +8,10 @@ const Caixa = ({
 }) => {
   const [modalShow, setModalShow] = React.useState(false);
   return (
-    <Card className="m-4">
+    <Card className="m-4 card-color text-white">
       <Card.Header><b>{cardTitle}</b></Card.Header>
       <Card.Body className="p-2">
-        <Button variant="dark" onClick={() => setModalShow(true)} className="p-2 preto" data-toggle="modal" data-target="#exampleModalLong">
+        <Button variant="dark" onClick={() => setModalShow(true)} className="p-2" data-toggle="modal" data-target="#exampleModalLong">
           { info }
           {' '}
         </Button>
@@ -19,8 +19,8 @@ const Caixa = ({
           show={modalShow}
           onHide={() => setModalShow(false)}
         />
-        <div className="text-center texto">
-          There are no items yet.
+        <div className="text-center texto-card">
+          Estamos trabalhando.
           {' '}
           <Image className="rounded mx-auto d-block " src="https://media0.giphy.com/media/LmNwrBhejkK9EFP504/200.gif" roundedCircle />
         </div>
