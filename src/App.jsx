@@ -1,4 +1,8 @@
 import React from 'react';
+<<<<<<< HEAD
+=======
+
+>>>>>>> reactex-tiago
 import Caixa from './components/Cards/Card';
 import './styles/index.css';
 

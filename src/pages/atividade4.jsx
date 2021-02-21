@@ -4,7 +4,11 @@ import {
 } from 'react-bootstrap';
 import { GiZeusSword, GiPencil } from 'react-icons/gi';
 
+<<<<<<< HEAD
 import CaixaAtividade from '../components/Cards/Card_atividade4';
+=======
+import Caixa2 from '../components/Cards/Card_atividade4';
+>>>>>>> reactex-tiago
 
 const App = () => {
   // Declarando os estados
