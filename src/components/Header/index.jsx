@@ -13,7 +13,7 @@ const Header = ({ title, routes = [] }) => (
       </a>
     </span>
     <Nav className="mr-auto">
-      {routes.map((route) => (
+      {routes.filter(({ visible = true }) => visible).map((route) => (
         <Link className="nav-link" to={route.path}>{route.name}</Link>
       ))}
       <Nav.Link href="https://github.com/ThiagoPierre/Reactex">GitHub</Nav.Link>

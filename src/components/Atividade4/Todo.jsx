@@ -6,7 +6,6 @@ import axios from '../../utils/api';
 const Atividade4 = () => {
   // estado do todo principal - será usado em TodoForm e TodoList
   const [todos, setTodos] = useState([]);
-  // commit
   // fetchToDos está recuperando as informações da API com o get e atualizando no setTodos
   const fetchToDos = async () => {
     const response = await axios.get('/todo');

@@ -7,14 +7,24 @@ import { GiOpenBook } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
 import Caixa2 from '../Cards/Card_atividade4';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from '../../utils/api';
 
 export default function TodoForm({ todos, setTodos }) {
   // estado do texto
   const [text, setText] = useState('');
   const notify = () => toast('Atividade adicionada! 🤣🤣🤣');
   // Função para adicionar ToDo
-  const onAddTodo = () => {
-    setTodos([...todos, { title: text }]);
+  const onAddTodo = async (event) => {
+    event.preventDefault();
+
+    const data = {
+      isCompleted: false,
+      title: text,
+    };
+
+    const response = await axios.post('/todo', data);
+
+    setTodos([...todos, response.data]);
     setText('');
   };
 

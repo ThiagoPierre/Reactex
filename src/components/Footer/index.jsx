@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className="footer text-center">
     <div className="text-muted container">
       <p className="text-members">
-        Membros: Alan Brito, Augusto Falcão, Thiago Barboza Pierre e Tiago Netto
+        Membros: Alan Brito, Augusto Falcão, Diogo Souza, Thiago Barboza Pierre e Tiago Netto
         <a href="https://github.com/ThiagoPierre/Reactex" title="Link para o GitHub">
           {' '}
           <GoMarkGithub />
