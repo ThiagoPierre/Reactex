@@ -4,7 +4,11 @@ import {
 } from 'react-bootstrap';
 import { GiZeusSword, GiPencil } from 'react-icons/gi';
 
-import Caixa2 from '../components/Card_ex04';
+<<<<<<< HEAD
+import CaixaAtividade from '../components/Cards/Card_atividade4';
+=======
+import Caixa2 from '../components/Cards/Card_atividade4';
+>>>>>>> reactex-tiago
 
 const App = () => {
   // Declarando os estados
@@ -40,7 +44,7 @@ const App = () => {
   // Corpo da Aplicação
   return (
 
-    <Caixa2 title="Todo App" className="m-4">
+    <CaixaAtividade title="Todo App" className="m-4">
       <Container>
         <h2>
           Lista de atividades
@@ -97,7 +101,7 @@ const App = () => {
           </ListGroup>
         </Row>
       </Container>
-    </Caixa2>
+    </CaixaAtividade>
   );
 };
 

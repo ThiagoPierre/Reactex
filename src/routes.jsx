@@ -1,42 +1,54 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import caixaGrupo from './components/Card_grupo';
+import Grupo from './pages/Grupo';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import index from './pages';
 import Atividade4 from './components/Atividade4/Todo';
+import TodoParameters from './pages/TodoParameters';
 
 const routes = [{
-  path: '/Reactex/home',
+  path: '/',
   name: 'Home',
   component: index,
-  exact: true,
+  visible: false,
 }, {
-  path: '/Reactex/grupo',
+  path: '/grupo',
   name: 'Grupo',
-  component: caixaGrupo,
-  exact: true,
+  component: Grupo,
+  visible: false,
 }, {
-  path: '/Reactex/atividade4',
+  path: '/atividade4',
   name: 'Atividade 4',
   component: Atividade4,
-  exact: true,
-}];
+  visible: true,
+},
+{
+  path: '/atividade4/:id',
+  component: TodoParameters,
+  name: 'Todo',
+  visible: false,
+},
+];
 
 const Routes = () => (
-  <BrowserRouter>
-    <Header title="PITANG 2" to="/Reactex/home" routes={routes} />
-    <Switch>
-      {routes.map(({ component, path, exact }) => (
-        <Route
-          key={path}
-          path={path}
-          component={component}
-          exact={exact}
-        />
-      ))}
-    </Switch>
-  </BrowserRouter>
+  <div>
+    <BrowserRouter>
+      <Header title="PITANG 2" to="/Reactex/home" routes={routes} />
+      <Switch>
+        {routes.map(({ component, path }) => (
+          <Route
+            key={path}
+            path={path}
+            component={component}
+            exact
+          />
+        ))}
+      </Switch>
+    </BrowserRouter>
+    <Footer />
+  </div>
 );
 
 export default Routes;

@@ -1,10 +1,14 @@
 import React from 'react';
-import Caixa from './components/Card';
-import './components/index.css';
+<<<<<<< HEAD
+=======
+
+>>>>>>> reactex-tiago
+import Caixa from './components/Cards/Card';
+import './styles/index.css';
 
 const App = () => (
   <div className="App">
-    <Caixa info="DÚVIDAS" cardTitle="Home"> </Caixa>
+    <Caixa info="DÚVIDAS" cardTitle="Home" />
   </div>
 );
 
