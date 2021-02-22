@@ -20,8 +20,8 @@ export default function index() {
   return (
     <Container>
       <Card title="Todo Parameters" className="m-4">
-        <h3>{`Tarefa n° ${todoParameters.id}`}</h3>
-        <p>{`Descrição: ${todoParameters.title}`}</p>
+        <h3>{`ID ${todoParameters.id}`}</h3>
+        <p>{`To Do: ${todoParameters.title}`}</p>
       </Card>
     </Container>
   );
