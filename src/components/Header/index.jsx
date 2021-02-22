@@ -16,8 +16,8 @@ const Header = ({ title, routes = [] }) => (
       {routes.filter(({ visible = true }) => visible).map((route) => (
         <Link className="nav-link" to={route.path}>{route.name}</Link>
       ))}
-      <Nav.Link href="https://github.com/ThiagoPierre/Reactex">GitHub</Nav.Link>
-      <Nav.Link href="https://trello.com/b/rp5YhVb3/pitang-02">Trello</Nav.Link>
+      <Nav.Link target="blank" href="https://github.com/ThiagoPierre/Reactex">GitHub</Nav.Link>
+      <Nav.Link target="blank" href="https://trello.com/b/rp5YhVb3/pitang-02">Trello</Nav.Link>
     </Nav>
   </Navbar>
 );

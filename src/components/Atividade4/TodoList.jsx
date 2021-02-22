@@ -13,32 +13,31 @@ const TodoList = ({ todos, setTodos }) => {
   // adicão do toastify
   const notify = () => toast('Atividade removida! 😭😭😭');
   // Função de verificação da tarefa
-  const checkComplete = async ({ target: { marcado } }, todo) => {
+  const checkComplete = async ({ target: { checked } }, todo) => {
     const newTodos = todos.map((todoTemp) => {
       if (todoTemp.id === todo.id) {
         return {
           ...todoTemp,
-          isCompleted: marcado,
+          isCompleted: checked,
         };
       }
       return todoTemp;
     });
 
-    await axios.put(`/todo/${todo.id}`, {
+    const response = await axios.put(`/todo/${todo.id}`, {
       ...todo,
-      isCompleted: marcado,
+      isCompleted: checked,
     });
 
-    setTodos(newTodos);
+    setTodos(newTodos, response.data);
   };
 
   /* Função de deletar a tarefa */
-  const deleteTodo = async (todo) => {
-    const newTodos = todos.splice(todo, 1);
+  const deleteTodo = async (todo, event) => {
+    todos.splice(event.target.value, 1);
 
     await axios.delete(`/todo/${todo.id}`);
-
-    setTodos(newTodos);
+    setTodos([...todos]);
   };
 
   // Funções para editar uma tarefa
@@ -105,7 +104,7 @@ const TodoList = ({ todos, setTodos }) => {
                 className="m-2"
                 type="checkbox"
                 onChange={(event) => checkComplete(event, todo)}
-                marcado={todo.isCompleted}
+                checked={todo.isCompleted}
               />
 
               {todo.edit ? (
@@ -115,7 +114,7 @@ const TodoList = ({ todos, setTodos }) => {
                   onChange={(event) => onChangeTodo(event, index)}
                 />
               ) : (
-                <Link to={`/todo/${todo.id}`} className={todo.isCompleted ? 'completed' : ''}>
+                <Link to={`/atividade4/${todo.id}`} className={todo.isCompleted ? 'completed' : ''}>
                   {todo.title}
                 </Link>
               )}
@@ -131,7 +130,7 @@ const TodoList = ({ todos, setTodos }) => {
                 type="button"
                 variant="danger"
                 className="m-2 float-end"
-                onClick={() => { deleteTodo(todo); notify(); }}
+                onClick={(event) => { deleteTodo(todo, event); notify(); }}
               >
                 <GiTrashCan className="m-2" />
               </Button>

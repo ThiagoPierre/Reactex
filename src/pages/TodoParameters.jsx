@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+/* import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import axios from '../utils/api';
@@ -26,3 +26,4 @@ export default function index() {
     </Container>
   );
 }
+ */
