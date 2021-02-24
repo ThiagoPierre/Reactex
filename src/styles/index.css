@@ -18,6 +18,11 @@
   font-size: 60px!important;
   color: #66FCF1;
 }
+
+.texto-modal{
+  font-family: bon voyage!important;
+  font-size: 20px;
+}
 .logo{
   transition: 2s;
 }
@@ -28,6 +33,11 @@
 @font-face{
   font-family: minecraft;
   src: url(Minecraft.ttf);
+}
+
+@font-face{
+  font-family: bon voyage;
+  src: url(BonVoyage.otf)
 }
 
 @font-face{
