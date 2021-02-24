@@ -7,7 +7,7 @@ const nomes = ['Thiago Barboza Pierre',
   'Alan Brito',
   'Augusto Falcão'];
 
-const Grupo = () => (
+const Sobre = () => (
   <div>
     <CaixaGrupo
       nomes={nomes}
@@ -16,4 +16,4 @@ const Grupo = () => (
   </div>
 );
 
-export default Grupo;
+export default Sobre;
