@@ -10,8 +10,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from '../../utils/api';
 
 const TodoList = ({ todos, setTodos }) => {
-  // adicão do toastify
+  // notificando usuário
   const notify = () => toast('Atividade removida! 😭😭😭');
+  const notifyRemoveError = () => toast('Erro ao remover atividade, tente novamente mais tarde!');
+  const notifyEdit = () => toast('Atividade atualizada!');
+  const notifyEditError = () => toast('Erro ao atualizar atividade, tente novamente mais tarde ');
+  const notifyMarcado = () => toast('Atividade realizada!');
+  const notifyMarcadoError = () => toast('Error, tente novamente mais tarde ');
+
   // Função de verificação da tarefa
   const checkComplete = async ({ target: { checked } }, todo) => {
     const newTodos = todos.map((todoTemp) => {
@@ -24,20 +30,29 @@ const TodoList = ({ todos, setTodos }) => {
       return todoTemp;
     });
 
-    const response = await axios.put(`/todo/${todo.id}`, {
-      ...todo,
-      isCompleted: checked,
-    });
-
-    setTodos(newTodos, response.data);
+    try {
+      const response = await axios.put(`/todo/${todo.id}`, {
+        ...todo,
+        isCompleted: checked,
+      });
+      notifyMarcado();
+      setTodos(newTodos, response.data);
+    } catch (e) {
+      notifyMarcadoError();
+    }
   };
 
   /* Função de deletar a tarefa */
   const deleteTodo = async (todo, event) => {
     todos.splice(event.target.value, 1);
 
-    await axios.delete(`/todo/${todo.id}`);
-    setTodos([...todos]);
+    try {
+      await axios.delete(`/todo/${todo.id}`);
+      setTodos([...todos]);
+      notify();
+    } catch (e) {
+      notifyRemoveError();
+    }
   };
 
   // Funções para editar uma tarefa
@@ -60,14 +75,19 @@ const TodoList = ({ todos, setTodos }) => {
   // Função do keven
   const onBlurField = async (todo) => {
     if (todo.title.trim()) {
-      await axios.put(`/todo/${todo.id}`, {
-        ...todo,
-        edit: false,
-      });
+      try {
+        await axios.put(`/todo/${todo.id}`, {
+          ...todo,
+          edit: false,
+        });
+        notifyEdit();
+      } catch (e) {
+        notifyEditError();
+      }
 
       onEditTodo(todo);
     } else {
-      toast.error('Valor vazio');
+      notifyEditError();
     }
   };
 
@@ -130,7 +150,7 @@ const TodoList = ({ todos, setTodos }) => {
                 type="button"
                 variant="danger"
                 className="m-2 float-end"
-                onClick={(event) => { deleteTodo(todo, event); notify(); }}
+                onClick={(event) => { deleteTodo(todo, event); }}
               >
                 <GiTrashCan className="m-2" />
               </Button>
