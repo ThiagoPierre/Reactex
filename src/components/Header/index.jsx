@@ -2,6 +2,8 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
+import { BsSearch } from 'react-icons/bs';
+import { IconContext } from 'react-icons';
 import Logo from '../Images/logo.png';
 
 const Header = ({ title, routes = [] }) => (
@@ -19,6 +21,25 @@ const Header = ({ title, routes = [] }) => (
       <Nav.Link target="blank" href="https://github.com/ThiagoPierre/Reactex">GitHub</Nav.Link>
       <Nav.Link target="blank" href="https://trello.com/b/rp5YhVb3/pitang-02">Trello</Nav.Link>
     </Nav>
+    <form className="d-flex input-group w-auto mr-5">
+      <input
+        type="search"
+        className="form-control"
+        placeholder="Busca"
+        aria-label="Search"
+      />
+      <button
+        className="btn primary botao"
+        type="button"
+        data-mdb-ripple-color="dark"
+      >
+        <IconContext.Provider value={{ color: '#66FCF1', className: 'global-class-name' }}>
+          <div>
+            <BsSearch />
+          </div>
+        </IconContext.Provider>
+      </button>
+    </form>
   </Navbar>
 );
 
