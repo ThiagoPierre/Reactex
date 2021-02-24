@@ -12,7 +12,11 @@ import axios from '../../utils/api';
 export default function TodoForm({ todos, setTodos }) {
   // estado do texto
   const [text, setText] = useState('');
+
+  // notificando usuário
   const notify = () => toast('Atividade adicionada! 🤣🤣🤣');
+  const notifyError = () => toast('Erro ao adicionar atividade!');
+
   // Função para adicionar ToDo
   const onAddTodo = async (event) => {
     event.preventDefault();
@@ -22,10 +26,14 @@ export default function TodoForm({ todos, setTodos }) {
       title: text,
     };
 
-    const response = await axios.post('/todo', data);
-
-    setTodos([...todos, response.data]);
-    setText('');
+    try {
+      const response = await axios.post('/todo', data);
+      notify();
+      setTodos([...todos, response.data]);
+      setText('');
+    } catch (e) {
+      notifyError();
+    }
   };
 
   // Corpo da Aplicação
@@ -51,7 +59,7 @@ export default function TodoForm({ todos, setTodos }) {
         <Col>
           <Button
             disabled={!text.trim()}
-            onClick={(event) => { onAddTodo(event); notify(); }}
+            onClick={(event) => { onAddTodo(event); }}
             type="button"
             className="m-2"
           >
