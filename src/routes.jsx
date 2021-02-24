@@ -5,7 +5,7 @@ import {
 import { Container, Card } from 'react-bootstrap';
 import axios from './utils/api';
 
-import Grupo from './pages/Grupo';
+import Sobre from './pages/Sobre';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import index from './pages';
@@ -40,13 +40,8 @@ const routes = [{
   component: index,
   visible: false,
 }, {
-  path: '/grupo',
-  name: 'Grupo',
-  component: Grupo,
-  visible: false,
-}, {
   path: '/atividade4',
-  name: 'Atividade 4',
+  name: 'ToDo List',
   component: Atividade4,
   visible: true,
 },
@@ -55,13 +50,18 @@ const routes = [{
   component: Child,
   name: '',
   visible: false,
+}, {
+  path: '/sobre',
+  name: 'Sobre',
+  component: Sobre,
+  visible: true,
 },
 ];
 
 const Routes = () => (
   <div>
     <BrowserRouter>
-      <Header title="PITANG 2" routes={routes} />
+      <Header routes={routes} />
       <Switch>
         {routes.map(({ component, path }) => (
           <Route

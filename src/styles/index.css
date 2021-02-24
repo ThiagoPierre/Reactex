@@ -7,15 +7,32 @@
     font-size:15px !important;
     background-color: #1f2833 !important;
 }
+.texto-nav{
+  font-family: brouwerij!important;
+  font-size: 46px!important;
+  color: white;
+}
 
 .texto-card{
-  font-family: minecraft!important;
-  font-size: 24px!important;
+  font-family: brouwerij!important;
+  font-size: 60px!important;
+  color: #66FCF1;
+}
+.logo{
+  transition: 2s;
+}
+.logo:hover{
+  transform: scale(1.2);
 }
 
 @font-face{
   font-family: minecraft;
   src: url(Minecraft.ttf);
+}
+
+@font-face{
+  font-family: brouwerij;
+  src: url(Brouwerij.otf)
 }
 
 

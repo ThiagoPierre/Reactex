@@ -22,7 +22,7 @@ const Caixa = ({
         <div className="text-center texto-card">
           Estamos trabalhando.
           {' '}
-          <Image className="rounded mx-auto d-block " src="https://media0.giphy.com/media/LmNwrBhejkK9EFP504/200.gif" roundedCircle />
+          <Image className="rounded mx-auto d-block mb-4" src="https://media0.giphy.com/media/LmNwrBhejkK9EFP504/200.gif" roundedCircle />
         </div>
       </Card.Body>
     </Card>
