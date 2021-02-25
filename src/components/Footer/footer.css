@@ -2,12 +2,13 @@
   border: 10px;
   width: 100%;
   height: 120px;
-  padding: 0px;
-  margin: 0px;
+  margin-top: auto;
+  left: 0%;
   bottom: 0%;
   line-height: 20px;
   background-color: #1f2833;
   position: fixed;
+
 
 }
 

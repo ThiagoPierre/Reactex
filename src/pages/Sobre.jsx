@@ -1,19 +1,22 @@
 import React from 'react';
-import CaixaGrupo from '../components/Cards/Card_grupo';
-
-const nomes = ['Thiago Barboza Pierre',
-  'Tiago Netto',
-  'Diogo Souza',
-  'Alan Brito',
-  'Augusto Falcão'];
+import Image from 'react-bootstrap/Image';
+import { Table } from 'react-bootstrap';
+import Logo from '../components/Images/logo.png';
 
 const Sobre = () => (
-  <div>
-    <CaixaGrupo
-      nomes={nomes}
-      cardTitle="Nomes"
+  <Table style={{
+    justifyContent: 'center',
+    alignItems: 'center',
+  }}
+  >
+    <Image
+      className="logo"
+      src={Logo}
+      alt="aopa"
+      width="300"
+
     />
-  </div>
+  </Table>
 );
 
 export default Sobre;

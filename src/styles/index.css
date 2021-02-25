@@ -1,3 +1,13 @@
+body{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.row{
+  display: block!important;
+}
+
 .titulo {
   font-size: 15px !important;
 }
@@ -69,11 +79,9 @@ input[type="search"]:focus {
 }
 
 
-
-
-
 html body {
   background-color: #c5c6c7;
+  position: relative;
 }
 
 .card-color {
