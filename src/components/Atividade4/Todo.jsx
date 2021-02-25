@@ -12,6 +12,7 @@ const Atividade4 = () => {
     setTodos(response.data);
   };
 
+  // chama a requisição dos dados sempre que a página for recarregada
   useEffect(() => {
     fetchToDos();
   }, []);
