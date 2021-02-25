@@ -134,10 +134,10 @@ const TodoList = ({ todos, setTodos }) => {
                   onChange={(event) => onChangeTodo(event, index)}
                 />
               ) : (
-                <Link to={`/atividade4/${todo.id}`} className={todo.isCompleted ? 'completed' : ''}>
-                  {todo.title}
-                </Link>
-              )}
+                  <Link to={`/atividade4/${todo.id}`} className={todo.isCompleted ? 'completed' : ''}>
+                    {todo.title}
+                  </Link>
+                )}
 
               <Button
                 className="m-2 float-end"
@@ -157,12 +157,12 @@ const TodoList = ({ todos, setTodos }) => {
               <ToastContainer />
             </ListGroup.Item>
           )) : (
-            <tr>
-              <td align="center">
-                Nenhuma atividade foi adicionada 😅
+              <tr>
+                <td align="center">
+                  Nenhuma atividade foi adicionada 😅
               </td>
-            </tr>
-          )}
+              </tr>
+            )}
         </ListGroup>
       </Row>
 

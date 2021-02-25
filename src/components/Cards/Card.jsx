@@ -12,7 +12,7 @@ const Caixa = ({
       <Card.Header><b>{cardTitle}</b></Card.Header>
       <Card.Body className="p-2">
         <Button variant="dark" onClick={() => setModalShow(true)} className="p-2" data-toggle="modal" data-target="#exampleModalLong">
-          { info }
+          {info}
           {' '}
         </Button>
         <ModalCentralizado
