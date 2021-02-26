@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import index from './pages';
 import Atividade4 from './components/Atividade4/Todo';
+import CardSecond from './components/Cards/CardSecond';
 
 function Child() {
   const { id } = useParams();
@@ -74,6 +75,7 @@ const Routes = () => (
           ))}
         </Switch>
       </BrowserRouter>
+      <CardSecond />
     </body>
     <Footer />
   </div>
