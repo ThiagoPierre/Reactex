@@ -29,7 +29,7 @@ const Header = ({ title, routes = [] }) => (
         aria-label="Search"
       />
       <button
-        className="btn primary botao"
+        className="btn primary botao-search"
         type="button"
         data-mdb-ripple-color="dark"
       >

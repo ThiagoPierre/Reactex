@@ -14,8 +14,8 @@ export default function TodoForm({ todos, setTodos }) {
   const [text, setText] = useState('');
 
   // notificando usuário
-  const notify = () => toast('Atividade adicionada! 🤣🤣🤣');
-  const notifyError = () => toast('Erro ao adicionar atividade!');
+  const notify = () => toast.success('Atividade adicionada! 🤣🤣🤣');
+  const notifyError = () => toast.error('Erro ao adicionar atividade!');
 
   // Função para adicionar ToDo
   const onAddTodo = async (event) => {

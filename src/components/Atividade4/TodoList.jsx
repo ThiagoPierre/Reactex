@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
+
   Row, Button, ListGroup,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 import { GiPencil, GiTrashCan } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
 import Caixa2 from '../Cards/Card_atividade4';
@@ -11,12 +13,12 @@ import axios from '../../utils/api';
 
 const TodoList = ({ todos, setTodos }) => {
   // notificando usuário
-  const notify = () => toast('Atividade removida! 😭😭😭');
-  const notifyRemoveError = () => toast('Erro ao remover atividade, tente novamente mais tarde!');
-  const notifyEdit = () => toast('Atividade atualizada!');
-  const notifyEditError = () => toast('Erro ao atualizar atividade, tente novamente mais tarde ');
-  const notifyMarcado = () => toast('Atividade realizada!');
-  const notifyMarcadoError = () => toast('Error, tente novamente mais tarde ');
+  const notify = () => toast.dark('Atividade removida! 😭😭😭');
+  const notifyRemoveError = () => toast.error('Erro ao remover atividade, tente novamente mais tarde!');
+  const notifyEdit = () => toast.info('Atividade atualizada!');
+  const notifyEditError = () => toast.error('Erro ao atualizar atividade, tente novamente mais tarde ');
+  const notifyMarcado = () => toast.info('Atividade realizada!');
+  const notifyMarcadoError = () => toast.error('Error, tente novamente mais tarde ');
 
   // Função de verificação da tarefa
   const checkComplete = async ({ target: { checked } }, todo) => {
@@ -113,7 +115,7 @@ const TodoList = ({ todos, setTodos }) => {
       <Row>
         <ListGroup className="m-2">
           {todos.length ? todos.map((todo, index) => (
-            <ListGroup.Item
+            <Row
               key={todo.id}
               style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}
               variant="primary"
@@ -138,24 +140,25 @@ const TodoList = ({ todos, setTodos }) => {
                   {todo.title}
                 </Link>
               )}
+              <td>
+                <Button
+                  className="m-2 float-end"
+                  onClick={() => onEditTodo(todo)}
+                >
+                  <GiPencil className="m-2" />
+                </Button>
 
-              <Button
-                className="m-2 float-end"
-                onClick={() => onEditTodo(todo)}
-              >
-                <GiPencil className="m-2" />
-              </Button>
-
-              <Button
-                type="button"
-                variant="danger"
-                className="m-2 float-end"
-                onClick={(event) => { deleteTodo(todo, event); }}
-              >
-                <GiTrashCan className="m-2" />
-              </Button>
+                <Button
+                  type="button"
+                  variant="danger"
+                  className="m1-2 float-end"
+                  onClick={(event) => { deleteTodo(todo, event); }}
+                >
+                  <GiTrashCan className="m-2" />
+                </Button>
+              </td>
               <ToastContainer />
-            </ListGroup.Item>
+            </Row>
           )) : (
             <tr>
               <td align="center">
@@ -164,6 +167,7 @@ const TodoList = ({ todos, setTodos }) => {
             </tr>
           )}
         </ListGroup>
+
       </Row>
 
     </Caixa2>

@@ -60,19 +60,21 @@ const routes = [{
 
 const Routes = () => (
   <div>
-    <BrowserRouter>
-      <Header routes={routes} />
-      <Switch>
-        {routes.map(({ component, path }) => (
-          <Route
-            key={path}
-            path={path}
-            component={component}
-            exact
-          />
-        ))}
-      </Switch>
-    </BrowserRouter>
+    <body>
+      <BrowserRouter>
+        <Header routes={routes} />
+        <Switch>
+          {routes.map(({ component, path }) => (
+            <Route
+              key={path}
+              path={path}
+              component={component}
+              exact
+            />
+          ))}
+        </Switch>
+      </BrowserRouter>
+    </body>
     <Footer />
   </div>
 );

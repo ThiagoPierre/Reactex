@@ -1,80 +1,90 @@
+body{
+  display: flex;
+  flex-direction: column;
 
-.titulo{
-    font-size: 15px !important;
 }
 
-.preto{
-    font-size:15px !important;
-    background-color: #1f2833 !important;
+.row{
+  display: block!important;
 }
-.texto-nav{
-  font-family: brouwerij!important;
-  font-size: 46px!important;
+
+.titulo {
+  font-size: 15px !important;
+}
+
+.preto {
+  font-size: 15px !important;
+  background-color: #1f2833 !important;
+}
+
+.texto-nav {
+  font-family: brouwerij !important;
+  font-size: 46px !important;
   color: white;
 }
 
-.texto-card{
-  font-family: brouwerij!important;
-  font-size: 60px!important;
+.texto-card {
+  font-family: brouwerij !important;
+  font-size: 60px !important;
   color: #66FCF1;
 }
 
-.texto-modal{
-  font-family: bon voyage!important;
+.texto-modal {
+  font-family: bon voyage !important;
   font-size: 20px;
 }
-.logo{
+
+.logo {
   transition: 2s;
 }
-.logo:hover{
+
+.logo:hover {
   transform: scale(1.2);
 }
 
-.botao{
+.botao-search {
+  border-top-color: #66FCF1;
   border-bottom-color: #66FCF1;
   border-right-color: #66FCF1;
-  border-top-right-radius:10px;
+  border-top-right-radius: 10px;
 }
 
-@font-face{
+@font-face {
   font-family: minecraft;
   src: url(Minecraft.ttf);
 }
 
-@font-face{
+@font-face {
   font-family: bon voyage;
   src: url(BonVoyage.otf)
 }
 
-@font-face{
+@font-face {
   font-family: brouwerij;
   src: url(Brouwerij.otf)
 }
 
-input[type="search"]
-{
-    background: transparent;
-    color:#66FCF1;
-    border-color: #66FCF1;
-    transition:height 0.6s;
+input[type="search"] {
+  background: transparent;
+  color: #66FCF1;
+  border-color: #66FCF1;
+  transition: height 0.6s;
 
 }
 
 input[type="search"]:focus {
   background: transparent;
-    height:45px;
-    font-size:16px;
+  height: 45px;
+  font-size: 16px;
 }
 
 
-
-
-
-html body{
+html body {
   background-color: #c5c6c7;
+  position: relative;
 }
 
-.card-color{
+.card-color {
   background-color: #1f2833;
 
 }
