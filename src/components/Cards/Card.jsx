@@ -1,5 +1,7 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import {
+  Card, Button,
+} from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import ModalCentralizado from '../Modal';
 
