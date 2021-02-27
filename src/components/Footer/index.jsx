@@ -1,9 +1,9 @@
 import React from 'react';
 import { GoMarkGithub } from 'react-icons/go';
-import './footer.css';
+import '../../styles/index.css';
 
 const Footer = () => (
-  <footer className="footer text-center">
+  <footer className="footer text-center header-footer-theme">
     <div className="text-muted container">
       <p className="text-members">
         Membros: Alan Brito, Augusto Falcão, Diogo Souza, Thiago Barboza Pierre e Tiago Netto

@@ -12,7 +12,7 @@ body{
   font-size: 15px !important;
 }
 
-.preto {
+.header-footer-theme {
   font-size: 15px !important;
   background-color: #1f2833 !important;
 }
@@ -49,19 +49,30 @@ body{
   border-top-right-radius: 10px;
 }
 
-@font-face {
-  font-family: minecraft;
-  src: url(Minecraft.ttf);
+.footer {
+  border: 10px;
+  width: 100%;
+  height: 120px;
+  margin-top: auto;
+  left: 0%;
+  bottom: 0%;
+  line-height: 20px;
+  background-color: #1f2833;
+  position: fixed;
+}
+
+.text-members {
+  padding-top: 40px;
 }
 
 @font-face {
   font-family: bon voyage;
-  src: url(BonVoyage.otf)
+  src: url(./fonts/BonVoyage.otf)
 }
 
 @font-face {
   font-family: brouwerij;
-  src: url(Brouwerij.otf)
+  src: url(./fonts/Brouwerij.otf)
 }
 
 input[type="search"] {
@@ -83,6 +94,7 @@ html body {
   background-color: #c5c6c7;
   position: relative;
 }
+
 
 .card-color {
   background-color: #1f2833;

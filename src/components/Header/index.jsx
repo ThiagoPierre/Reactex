@@ -7,7 +7,7 @@ import { IconContext } from 'react-icons';
 import Logo from '../Images/logo.png';
 
 const Header = ({ title, routes = [] }) => (
-  <Navbar className="preto" variant="dark">
+  <Navbar className="header-footer-theme" variant="dark">
     <Link className="navbar-brand" to="/">{title}</Link>
     <span className="logo-icon">
       <a href="/">

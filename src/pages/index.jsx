@@ -1,5 +1,5 @@
 import React from 'react';
-import Caixa from '../components/Cards/Card';
+import Caixa from '../components/Cards/Cards_pages/Card';
 import '../styles/index.css';
 
 const index = () => (
