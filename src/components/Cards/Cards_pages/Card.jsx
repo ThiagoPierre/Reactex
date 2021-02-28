@@ -3,7 +3,7 @@ import {
   Card, Button,
 } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import ModalCentralizado from '../Modal';
+import ModalCentralizado from '../../Modal';
 
 const Caixa = ({
   info, cardTitle,
@@ -13,7 +13,7 @@ const Caixa = ({
     <Card className="m-4 card-color text-white">
       <Card.Header><b>{cardTitle}</b></Card.Header>
       <Card.Body className="p-2">
-        <Button variant="dark" onClick={() => setModalShow(true)} className="p-2" data-toggle="modal" data-target="#exampleModalLong">
+        <Button variant="dark" onClick={() => setModalShow(true)} data-toggle="modal" data-target="#exampleModalLong">
           {info}
           {' '}
         </Button>

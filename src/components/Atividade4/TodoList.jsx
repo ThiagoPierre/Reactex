@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { GiPencil, GiTrashCan } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
-import Caixa2 from '../Cards/Card_atividade4';
+import Caixa2 from '../Cards/Cards_pages/Card_atividade4';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from '../../utils/api';
 
