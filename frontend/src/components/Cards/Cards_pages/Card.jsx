@@ -2,8 +2,9 @@ import React from 'react';
 import {
   Card, Button,
 } from 'react-bootstrap';
-import Image from 'react-bootstrap/Image';
+/* import Image from 'react-bootstrap/Image'; */
 import ModalCentralizado from '../../Modal';
+import CardSecond from '../CardSecond';
 
 const Caixa = ({
   info, cardTitle,
@@ -21,11 +22,12 @@ const Caixa = ({
           show={modalShow}
           onHide={() => setModalShow(false)}
         />
-        <div className="text-center texto-card">
+        <CardSecond />
+        {/* <div className="text-center texto-card">
           Estamos trabalhando.
           {' '}
           <Image className="rounded mx-auto d-block mb-4" src="https://media0.giphy.com/media/LmNwrBhejkK9EFP504/200.gif" roundedCircle />
-        </div>
+        </div> */}
       </Card.Body>
     </Card>
   );

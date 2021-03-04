@@ -4,7 +4,7 @@ import '../styles/index.css';
 
 const index = () => (
   <div className="App">
-    <Caixa info="DÚVIDAS" cardTitle="Home"> </Caixa>
+    <Caixa info="DÚVIDAS" cardTitle="Home" />
   </div>
 );
 

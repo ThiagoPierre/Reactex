@@ -39,7 +39,7 @@ const CardSecond = () => (
   <Container>
     <Row>
       {cardsAtividades.map(({ title, image, id }) => (
-        <Col md={4} key={id}>
+        <Col md={4} key={id} className="mt-3">
           <CardUI imageSource={image} title={title} />
         </Col>
       ))}

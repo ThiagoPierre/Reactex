@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import TodoList from './TodoList';
-import TodoForm from './TodoForm';
-import axios from '../../utils/api';
+import TodoList from '../components/Atividade4/TodoList';
+import TodoForm from '../components/Atividade4/TodoForm';
+import axios from '../utils/api';
 
 const Atividade4 = () => {
   // estado do todo principal - será usado em TodoForm e TodoList
