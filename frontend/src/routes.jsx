@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import index from './pages';
 import Atividade4 from './pages/Todo';
+import User from './pages/User';
 
 const routes = [{
   path: '/',
@@ -19,6 +20,12 @@ const routes = [{
   path: '/atividade4',
   name: 'ToDo List',
   component: Atividade4,
+  visible: true,
+},
+{
+  path: '/user',
+  name: 'User',
+  component: User,
   visible: true,
 },
 {
