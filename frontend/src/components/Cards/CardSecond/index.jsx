@@ -12,35 +12,42 @@ const cardsAtividades = [
     id: 1,
     title: 'Atividade 1',
     image: image1,
+    url: '/atividade1',
   },
   {
     id: 2,
     title: 'Atividade 2',
     image: image2,
+    url: '/atividade2',
   },
   {
     id: 3,
     title: 'Atividade 3',
     image: image3,
+    url: '/atividade3',
   },
   {
     id: 4,
     title: 'Atividade 4',
     image: image4,
+    url: '/atividade4',
   },
   {
     id: 4,
     title: 'Atividade 5',
     image: image5,
+    url: '/user',
   },
 ];
 
 const CardSecond = () => (
   <Container>
     <Row>
-      {cardsAtividades.map(({ title, image, id }) => (
+      {cardsAtividades.map(({
+        title, image, id, url,
+      }) => (
         <Col md={4} key={id} className="mt-3">
-          <CardUI imageSource={image} title={title} />
+          <CardUI imageSource={image} title={title} url={url} />
         </Col>
       ))}
     </Row>

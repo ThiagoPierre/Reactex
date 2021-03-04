@@ -10,9 +10,9 @@ const Header = ({ title, routes = [] }) => (
   <Navbar className="header-footer-theme" variant="dark">
     <Link className="navbar-brand" to="/">{title}</Link>
     <span className="logo-icon">
-      <a href="/">
+      <Link to="/">
         <Image className="pd-2 logo" src={Logo} alt={title} width="100" />
-      </a>
+      </Link>
     </span>
     <Nav className="mr-auto texto-nav">
       {routes.filter(({ visible = true }) => visible).map((route) => (
