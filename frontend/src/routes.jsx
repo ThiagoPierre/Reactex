@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import index from './pages';
 import Atividade4 from './pages/Todo';
 import User from './pages/User';
+import UserFuncs from './pages/User/userFuncs';
 
 const routes = [{
   path: '/',
@@ -27,6 +28,12 @@ const routes = [{
   name: 'User',
   component: User,
   visible: true,
+},
+{
+  path: '/user/:id',
+  name: 'User',
+  component: UserFuncs,
+  visible: false,
 },
 {
   path: '/atividade4/:id',

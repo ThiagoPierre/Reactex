@@ -4,7 +4,7 @@ import Card from '../Cards/Cards_pages/Card_atividade4';
 import TableIndex from '../Table';
 import axios from '../../utils/api';
 
-const ListView = ({ columns, endpoint }) => {
+const ListView = ({ columns, endpoint, AddButton }) => {
   const [rows, setRows] = useState([]);
 
   const recuperarDadosApi = async () => {
@@ -20,6 +20,7 @@ const ListView = ({ columns, endpoint }) => {
 
     <Container className="mt-4">
       <Card title="User">
+        <AddButton />
         <TableIndex
           columns={columns}
           rows={rows}
