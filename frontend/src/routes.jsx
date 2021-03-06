@@ -11,6 +11,7 @@ import index from './pages';
 import Atividade4 from './pages/Todo';
 import User from './pages/User';
 import UserFuncs from './pages/User/userFuncs';
+import Login from './pages/Login';
 
 const routes = [{
   path: '/',
@@ -40,7 +41,14 @@ const routes = [{
   component: Child,
   name: '',
   visible: false,
-}, {
+},
+{
+  path: '/login',
+  name: 'Login',
+  component: Login,
+  visible: true,
+},
+{
   path: '/sobre',
   name: 'Sobre',
   component: Sobre,
