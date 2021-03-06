@@ -7,17 +7,13 @@ import axios from '../../utils/api';
 const User = ({ history }) => {
   const removerUser = async (user) => {
     try {
-      await axios.delete(`/user/${user.id}`);
+      await axios.delete(`/user/${user._id}`);
     } catch (e) {
       console.log(e.message);
     }
   };
 
   const columns = [
-    {
-      id: 'id',
-      value: 'ID',
-    },
     {
       id: 'email',
       value: 'Email',
@@ -29,13 +25,13 @@ const User = ({ history }) => {
     {
       id: 'action',
       value: 'Funções',
-      render: (_, row) => (
+      render: (_, user) => (
         <div>
-          <Button onClick={() => history.push(`/user/${row.id}`)}>
+          <Button onClick={() => history.push(`/user/${user._id}`)}>
             Edit
           </Button>
           <Button
-            onClick={() => removerUser(row)}
+            onClick={() => removerUser(user)}
             className="m-2"
             variant="danger"
           >

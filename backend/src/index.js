@@ -8,18 +8,18 @@ const authMiddleware = require('./middlewares/auth.middleware');
 
 require('dotenv').config()
 
-const {HTTP_PORT, MONGO_URL} = process.env;
+/* const {HTTP_PORT, MONGO_URL} = process.env; */
 
 const UserRouter = require("./routes/user.router");
 
-mongoose.connect(MONGO_URL, {
+mongoose.connect('mongodb+srv://thiagopierre:L7ym9GzZnfZbYhua@ganguedoreact.dv413.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 const app = express();
 
-app.use(authMiddleware)
+/* app.use(authMiddleware) */
 app.use(cors());
 app.use(bodyParser.json())
 app.use(morgan('dev'))
@@ -30,6 +30,6 @@ app.get("/", (request, response) => {
 
 app.use("/api", UserRouter);
 
-app.listen(HTTP_PORT, () => {
-  console.log(`Rodando na porta ${HTTP_PORT}`);
+app.listen(3333, () => {
+  console.log(`Rodando na porta ${3333}`);
 });

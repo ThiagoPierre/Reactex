@@ -9,7 +9,7 @@ const ListView = ({ columns, endpoint, AddButton }) => {
 
   const recuperarDadosApi = async () => {
     const response = await axios.get(endpoint);
-    setRows(response.data);
+    setRows(response.data.data);
   };
 
   useEffect(() => {

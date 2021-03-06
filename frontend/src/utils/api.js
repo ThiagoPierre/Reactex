@@ -1,10 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
 import axios from 'axios';
 
-const { REACT_APP_API_BASE_URL } = process.env;
-
 const myAxios = axios.create({
-  baseURL: REACT_APP_API_BASE_URL,
+  baseURL: 'http://localhost:3333/api',
 });
 
 export default myAxios;
