@@ -7,13 +7,19 @@ import Child from './utils/TodoParameters';
 import Sobre from './pages/Sobre';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Login from './pages/Login';
 import index from './pages';
 import Atividade4 from './pages/Todo';
 import User from './pages/User';
 import UserFuncs from './pages/User/userFuncs';
-import Login from './pages/Login';
 
 const routes = [{
+  path: '/login',
+  name: 'Login',
+  component: Login,
+  visible: false,
+},
+{
   path: '/',
   name: 'Home',
   component: index,
@@ -41,12 +47,6 @@ const routes = [{
   component: Child,
   name: '',
   visible: false,
-},
-{
-  path: '/login',
-  name: 'Login',
-  component: Login,
-  visible: true,
 },
 {
   path: '/sobre',
