@@ -1,11 +1,20 @@
 import React from 'react';
-import Caixa from '../components/Cards/Cards_pages/Card';
-import '../styles/index.css';
+import {
+  Container,
+} from 'react-bootstrap';
 
-const index = () => (
+export default function LoginHome() {
+  return (
+    <Container className="m-2">
+      Olar
+    </Container>
+  );
+}
+
+/* const index = () => (
   <div className="App">
     <Caixa info="DÚVIDAS" cardTitle="Home" />
   </div>
 );
 
-export default index;
+export default index; */

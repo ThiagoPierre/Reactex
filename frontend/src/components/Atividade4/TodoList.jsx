@@ -33,7 +33,7 @@ const TodoList = ({ todos, setTodos }) => {
     });
 
     try {
-      const response = await axios.put(`/todo/${todo.id}`, {
+      const response = await axios.put(`/atividade4/${todo.id}`, {
         ...todo,
         isCompleted: checked,
       });
@@ -49,7 +49,7 @@ const TodoList = ({ todos, setTodos }) => {
     todos.splice(event.target.value, 1);
 
     try {
-      await axios.delete(`/todo/${todo.id}`);
+      await axios.delete(`/atividade4/${todo.id}`);
       setTodos([...todos]);
       notify();
     } catch (e) {
@@ -78,7 +78,7 @@ const TodoList = ({ todos, setTodos }) => {
   const onBlurField = async (todo) => {
     if (todo.title.trim()) {
       try {
-        await axios.put(`/todo/${todo.id}`, {
+        await axios.put(`/atividade4/${todo.id}`, {
           ...todo,
           edit: false,
         });

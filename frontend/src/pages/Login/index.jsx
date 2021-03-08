@@ -3,8 +3,9 @@ import {
   Container, Form, Button, Card, Row, Col,
 } from 'react-bootstrap';
 import axios from '../../utils/api';
+import { tokenGang } from '../../utils/constant';
 
-export default function LoginHome({ history, match: { params: { id } } }) {
+export default function LoginHome({ history /* , match: { params: { id } } */ }) {
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -22,9 +23,14 @@ export default function LoginHome({ history, match: { params: { id } } }) {
   const onSubmitLogin = async (event) => {
     event.preventDefault();
 
-    const response = await axios.get(`/login/${id}`);
-    setForm(response.data.login);
-    history.push(`/login/${form.id}`);
+    try {
+      const response = await axios.post('/auth', form);
+      localStorage.setItem(tokenGang, response.data.token);
+      console.log(response.data);
+      history.push('/');
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (

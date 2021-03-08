@@ -27,7 +27,7 @@ export default function TodoForm({ todos, setTodos }) {
     };
 
     try {
-      const response = await axios.post('/todo', data);
+      const response = await axios.post('/atividade4', data);
       notify();
       setTodos([...todos, response.data]);
       setText('');
