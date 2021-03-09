@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "completed": false,
+      "title": "fgdsgfd",
+      "id": 2
+    },
+    {
+      "completed": false,
+      "title": "dsadsa",
+      "id": 3
+    },
+    {
+      "completed": false,
+      "title": "dasdsa",
+      "id": 4
+    },
+    {
+      "completed": false,
+      "title": "fdsfsd",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "todo": [
+    {
+      "isCompleted": false,
+      "title": "Olare",
+      "id": 2,
+      "edit": false
+    },
+    {
+      "isCompleted": false,
+      "title": "Oioi",
+      "id": 3,
+      "edit": false
+    }
+  ]
+}
