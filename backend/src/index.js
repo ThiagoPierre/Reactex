@@ -17,7 +17,7 @@ mongoose.connect(MONGO_URL, {
 });
 
 const app = express();
-app.use(authMiddleware) 
+/* app.use(authMiddleware)  */
 app.use(cors());
 app.use(express.json())
 app.use(morgan('dev'))

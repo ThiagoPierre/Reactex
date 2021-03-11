@@ -24,7 +24,7 @@ class UserController {
 
       delete user.password;
 
-      const token = jwt.sign(user, process.env.JWT_SECRET_KEY);
+      const token = jwt.sign(user, 'alobomdia');
 
       res.send({ token });
     } catch (error) {

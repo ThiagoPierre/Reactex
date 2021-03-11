@@ -5,16 +5,8 @@ import {
 
 export default function LoginHome() {
   return (
-    <Container className="m-2">
+    <Container className="m-2 font-color-white">
       Olar
     </Container>
   );
 }
-
-/* const index = () => (
-  <div className="App">
-    <Caixa info="DÚVIDAS" cardTitle="Home" />
-  </div>
-);
-
-export default index; */

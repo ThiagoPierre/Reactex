@@ -3,13 +3,28 @@ const TodoModel = require('../models/todo.model')
 class TodoController {
     // Pegar as informações de todos os Todos
     async index(req, res) {
-        const data = await TodoModel.find();
+
+        const {
+            headers: {
+              loggedUser: { _id: userId },
+            },
+          } = req;
+
+          const data = await TodoModel.find({ userId });
     
         res.send({ data });
       }
       // Salva os Todos
     async store(req, res) {
-        const data = req.body;
+
+        const {
+            body: data,
+            headers: {
+              loggedUser: { _id: userId },
+            },
+          } = req;
+
+          data.userId = userId;
 
         const newTodo = await TodoModel.create(data)
 
@@ -49,7 +64,7 @@ class TodoController {
             if(!todo){
                 throw new Error("Todo does not exist")
             } 
-            res.send({ message:"User Removed" })
+            res.send({ message:"Todo Removed" })
             
         } catch(error){
             res.status(400).send({ message: error })

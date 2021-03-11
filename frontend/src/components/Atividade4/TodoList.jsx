@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import {
 
@@ -7,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import { GiPencil, GiTrashCan } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
-import Caixa2 from '../Cards/Cards_pages/Card_atividade4';
+import Caixa from '../Cards/Cards_pages';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from '../../utils/api';
 
@@ -23,7 +24,7 @@ const TodoList = ({ todos, setTodos }) => {
   // Função de verificação da tarefa
   const checkComplete = async ({ target: { checked } }, todo) => {
     const newTodos = todos.map((todoTemp) => {
-      if (todoTemp.id === todo.id) {
+      if (todoTemp._id === todo._id) {
         return {
           ...todoTemp,
           isCompleted: checked,
@@ -33,7 +34,7 @@ const TodoList = ({ todos, setTodos }) => {
     });
 
     try {
-      const response = await axios.put(`/atividade4/${todo.id}`, {
+      const response = await axios.put(`/atividade4/${todo._id}`, {
         ...todo,
         isCompleted: checked,
       });
@@ -49,7 +50,7 @@ const TodoList = ({ todos, setTodos }) => {
     todos.splice(event.target.value, 1);
 
     try {
-      await axios.delete(`/atividade4/${todo.id}`);
+      await axios.delete(`/atividade4/${todo._id}`);
       setTodos([...todos]);
       notify();
     } catch (e) {
@@ -61,7 +62,7 @@ const TodoList = ({ todos, setTodos }) => {
   // onEditTodo recebe os todos e atualiza com o setTodos
   const onEditTodo = (todo) => {
     const newTodos = todos.map((todoTemp) => {
-      if (todoTemp.id === todo.id) {
+      if (todoTemp._id === todo._id) {
         return {
           ...todoTemp,
           edit: !todoTemp.edit,
@@ -78,7 +79,7 @@ const TodoList = ({ todos, setTodos }) => {
   const onBlurField = async (todo) => {
     if (todo.title.trim()) {
       try {
-        await axios.put(`/atividade4/${todo.id}`, {
+        await axios.put(`/atividade4/${todo._id}`, {
           ...todo,
           edit: false,
         });
@@ -111,12 +112,12 @@ const TodoList = ({ todos, setTodos }) => {
 
   // Corpo da Aplicação
   return (
-    <Caixa2 title="Atividades" className="m-4">
+    <Caixa title="Atividades" className="m-4">
       <Row>
         <ListGroup className="m-2">
           {todos.length ? todos.map((todo, index) => (
             <Row
-              key={todo.id}
+              key={todo._id}
               style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}
               variant="primary"
               className="m-1"
@@ -136,7 +137,7 @@ const TodoList = ({ todos, setTodos }) => {
                   onChange={(event) => onChangeTodo(event, index)}
                 />
               ) : (
-                <Link to={`/atividade4/${todo.id}`} className={todo.isCompleted ? 'completed' : ''}>
+                <Link to={`/atividade4/${todo._id}`} className={todo.isCompleted ? 'completed' : ''}>
                   {todo.title}
                 </Link>
               )}
@@ -170,7 +171,7 @@ const TodoList = ({ todos, setTodos }) => {
 
       </Row>
 
-    </Caixa2>
+    </Caixa>
   );
 };
 

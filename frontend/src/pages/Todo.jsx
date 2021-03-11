@@ -9,8 +9,8 @@ const Atividade4 = () => {
   // fetchToDos está recuperando as informações da API com o get e atualizando no setTodos
   const fetchToDos = async () => {
     try {
-      const response = await axios.get('/atividade4/');
-      setTodos(response.data);
+      const response = await axios.get('/atividade4');
+      setTodos(response.data.data);
     } catch (e) {
       alert(e.message);
     }

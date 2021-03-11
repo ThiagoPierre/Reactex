@@ -98,5 +98,16 @@ html body {
 
 .card-color {
   background-color: #1f2833;
+}
 
+.font-color-white{
+  color:aliceblue!important;
+}
+
+.table{
+  color:aliceblue!important;
+}
+
+.card{
+  background-color: #1f2833;
 }

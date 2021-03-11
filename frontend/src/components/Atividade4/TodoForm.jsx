@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import { GiOpenBook } from 'react-icons/gi';
 import { ToastContainer, toast } from 'react-toastify';
-import Caixa2 from '../Cards/Cards_pages/Card_atividade4';
+import Caixa from '../Cards/Cards_pages';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from '../../utils/api';
 
@@ -38,7 +38,7 @@ export default function TodoForm({ todos, setTodos }) {
 
   // Corpo da Aplicação
   return (
-    <Caixa2 title="ToDo List" className="m-4">
+    <Caixa cardTitle="ToDo List" className="m-4">
       <h1>
         Lista de Atividades
         <GiOpenBook className="m-2" />
@@ -70,6 +70,6 @@ export default function TodoForm({ todos, setTodos }) {
 
       </Row>
 
-    </Caixa2>
+    </Caixa>
   );
 }

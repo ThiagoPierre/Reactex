@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import Card from '../Cards/Cards_pages/Card_atividade4';
+import Card from '../Cards/Cards_pages';
 import TableIndex from '../Table';
 import axios from '../../utils/api';
 
@@ -19,7 +19,7 @@ const ListView = ({ columns, endpoint, AddButton }) => {
   return (
 
     <Container className="mt-4">
-      <Card title="User">
+      <Card title="User font-color-white">
         <AddButton />
         <TableIndex
           columns={columns}

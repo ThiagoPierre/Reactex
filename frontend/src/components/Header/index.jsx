@@ -1,10 +1,11 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
 import Logo from '../Images/logo.png';
+import { tokenGang } from '../../utils/constant';
 
 const Header = ({ title, routes = [] }) => (
   <Navbar className="header-footer-theme" variant="dark">
@@ -20,6 +21,7 @@ const Header = ({ title, routes = [] }) => (
       ))}
       <Nav.Link target="blank" href="https://github.com/ThiagoPierre/Reactex">GitHub</Nav.Link>
       <Nav.Link target="blank" href="https://trello.com/b/rp5YhVb3/pitang-02">Trello</Nav.Link>
+      <Button className="text-nav " onClick={localStorage.removeItem(tokenGang)}>Log Out</Button>
     </Nav>
     <form className="d-flex input-group w-auto mr-5">
       <input
