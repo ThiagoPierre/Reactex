@@ -34,12 +34,12 @@ const TodoList = ({ todos, setTodos }) => {
     });
 
     try {
-      const response = await axios.put(`/atividade4/${todo._id}`, {
+      await axios.put(`/atividade4/${todo._id}`, {
         ...todo,
         isCompleted: checked,
       });
       notifyMarcado();
-      setTodos(newTodos, response.data);
+      setTodos(newTodos);
     } catch (e) {
       notifyMarcadoError();
     }
@@ -118,7 +118,7 @@ const TodoList = ({ todos, setTodos }) => {
           {todos.length ? todos.map((todo, index) => (
             <Row
               key={todo._id}
-              style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}
+              style={{ textDecoration: todo.isCompleted && 'line-through' }}
               variant="primary"
               className="m-1"
             >

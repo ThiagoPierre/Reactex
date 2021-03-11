@@ -4,6 +4,7 @@ const TodoSchema = mongoose.Schema(
   {
     isCompleted: Boolean,
     title: String,
+    userId: String,
  },
 );
 

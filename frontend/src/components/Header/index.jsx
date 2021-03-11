@@ -11,7 +11,7 @@ const Header = ({ title, routes = [] }) => (
   <Navbar className="header-footer-theme" variant="dark">
     <Link className="navbar-brand" to="/">{title}</Link>
     <span className="logo-icon">
-      <Link to="/">
+      <Link to="/home">
         <Image className="pd-2 logo" src={Logo} alt={title} width="100" />
       </Link>
     </span>
