@@ -8,8 +8,12 @@ const Atividade4 = () => {
   const [todos, setTodos] = useState([]);
   // fetchToDos está recuperando as informações da API com o get e atualizando no setTodos
   const fetchToDos = async () => {
-    const response = await axios.get('/atividade4');
-    setTodos(response.data);
+    try {
+      const response = await axios.get('/atividade4/');
+      setTodos(response.data);
+    } catch (e) {
+      alert(e.message);
+    }
   };
 
   // chama a requisição dos dados sempre que a página for recarregada

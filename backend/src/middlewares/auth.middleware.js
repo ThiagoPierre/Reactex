@@ -18,7 +18,7 @@ const authMiddleware = (req, res, next) => {
     }
 
     const [_, token] = authorization.split(" ");
-    const payload = verify(token, 'palavragrande');
+    const payload = verify(token, process.env.JWT_SECRET_KEY);
 
     req.headers.loggedUser = payload;
 

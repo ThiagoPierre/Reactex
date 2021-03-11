@@ -1,78 +1,67 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import {
-  BrowserRouter, Switch, Route,
+  BrowserRouter, Switch, Route, Redirect,
 } from 'react-router-dom';
 
-import Child from './utils/TodoParameters';
-import Sobre from './pages/Sobre';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Login from './pages/Login';
-import index from './pages';
-import Atividade4 from './pages/Todo';
-import User from './pages/User';
-import UserFuncs from './pages/User/userFuncs';
+import routes from './routelist';
+import { tokenGang } from './utils/constant';
 
-const routes = [{
-  path: '/login',
-  name: 'Login',
-  component: Login,
-  visible: false,
-},
-{
-  path: '/',
-  name: 'Home',
-  component: index,
-  visible: false,
-}, {
-  path: '/atividade4',
-  name: 'ToDo List',
-  component: Atividade4,
-  visible: true,
-},
-{
-  path: '/user',
-  name: 'User',
-  component: User,
-  visible: true,
-},
-{
-  path: '/user/:id',
-  name: 'User',
-  component: UserFuncs,
-  visible: false,
-},
-{
-  path: '/atividade4/:id',
-  component: Child,
-  name: '',
-  visible: false,
-},
-{
-  path: '/sobre',
-  name: 'Sobre',
-  component: Sobre,
-  visible: true,
-},
-];
+const publicRoutes = routes.filter(({ private: isPrivate }) => !isPrivate);
+const privateRoutes = routes.filter(({ private: isPrivate }) => isPrivate);
+
+const PublicRoute = ({ component: Component, ...otherProps }) => {
+  const isAuthenticated = localStorage.getItem(tokenGang);
+
+  return (
+    <Route
+      exact
+      {...otherProps}
+      render={(props) => {
+        if (isAuthenticated) {
+          return <Redirect to={{ pathname: '/home' }} />;
+        }
+        return <Component {...props} />;
+      }}
+    />
+  );
+};
+
+const PrivateRoute = ({ component: Component, ...otherProps }) => {
+  const isAuthenticated = localStorage.getItem(tokenGang);
+
+  return (
+    <Route
+      exact
+      {...otherProps}
+      render={(props) => {
+        if (isAuthenticated) {
+          return <Component {...props} />;
+        }
+
+        return <Redirect to={{ pathname: '/login' }} />;
+      }}
+    />
+  );
+};
 
 const Routes = () => (
-  <div>
+  <>
     <BrowserRouter>
       <Header routes={routes} />
       <Switch>
-        {routes.map(({ component, path }) => (
-          <Route
-            key={path}
-            path={path}
-            component={component}
-            exact
-          />
+        {publicRoutes.map((route) => (
+          <PublicRoute key={route.path} {...route} />
+        ))}
+        {privateRoutes.map((route) => (
+          <PrivateRoute key={route.path} {...route} />
         ))}
       </Switch>
     </BrowserRouter>
     <Footer />
-  </div>
+  </>
 );
 
 export default Routes;

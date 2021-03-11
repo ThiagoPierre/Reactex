@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser')
 const cors = require('cors');
 const express = require("express");
 const morgan = require('morgan');
@@ -8,28 +7,27 @@ const authMiddleware = require('./middlewares/auth.middleware');
 
 require('dotenv').config()
 
-/* const {HTTP_PORT, MONGO_URL} = process.env; */
+ const {HTTP_PORT, MONGO_URL} = process.env; 
 
-const UserRouter = require("./routes/user.router");
+const Routes = require("./routes/routes");
 
-mongoose.connect('mongodb+srv://thiagopierre:L7ym9GzZnfZbYhua@ganguedoreact.dv413.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 const app = express();
-
-/* app.use(authMiddleware) */
+app.use(authMiddleware) 
 app.use(cors());
-app.use(bodyParser.json())
+app.use(express.json())
 app.use(morgan('dev'))
 
 app.get("/", (request, response) => {
   response.json({ message: "Hello World" });
 });
 
-app.use("/api", UserRouter);
+app.use("/api", Routes);
 
-app.listen(3333, () => {
-  console.log(`Rodando na porta ${3333}`);
+app.listen(HTTP_PORT, () => {
+  console.log(`Rodando na porta ${HTTP_PORT}`);
 });

@@ -29,7 +29,7 @@ export default function TodoForm({ todos, setTodos }) {
     try {
       const response = await axios.post('/atividade4', data);
       notify();
-      setTodos([...todos, response.data]);
+      setTodos([...todos, response.data.data]);
       setText('');
     } catch (e) {
       notifyError();
